@@ -36,7 +36,6 @@ namespace ValesBot
             "que",
             "trata",
             "apoyo"};
-
 /*             matriz[1,0] = "Los vales tienen el valor de 50 pesos c/u.";
             matriz[1,1] = "que";
             matriz[1,2] = "valor";
