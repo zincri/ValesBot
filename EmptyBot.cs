@@ -28,13 +28,20 @@ namespace ValesBot
 
         protected override async Task OnMessageActivityAsync(ITurnContext<IMessageActivity> turnContext, CancellationToken cancellationToken){
             var message_received = turnContext.Activity.Text;
-            var array_message = message_received.Split(' ');
+            //char[] MyChar = {',', '.','¿','?'};
+            
+            string _message_received = message_received.Replace(",", "");
+            _message_received = _message_received.Replace(".", "");
+            _message_received = _message_received.Replace("¿", "");
+            _message_received = _message_received.Replace("?", "");
+            var array_message = _message_received.Split(' ');
 
             string[][] matriz = new string[2][];
             matriz[0] = new string [] {"El apoyo Vales grandeza es un programa del gobierno de gto."
             ,"que"
             ,"trata"
-            ,"apoyo"};
+            ,"apoyo"
+            ,"vacio"};
 
             matriz[1] = new string []  {"Los vales tienen el valor de 50 pesos c/u."
             ,"que"
