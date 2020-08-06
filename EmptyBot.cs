@@ -28,26 +28,200 @@ namespace ValesBot
 
         protected override async Task OnMessageActivityAsync(ITurnContext<IMessageActivity> turnContext, CancellationToken cancellationToken){
             var message_received = turnContext.Activity.Text;
-            //char[] MyChar = {',', '.','¿','?'};
             
             string _message_received = message_received.Replace(",", "");
             _message_received = _message_received.Replace(".", "");
+            _message_received = _message_received.Replace(":", "");
+            _message_received = _message_received.Replace(";", "");
             _message_received = _message_received.Replace("¿", "");
             _message_received = _message_received.Replace("?", "");
             var array_message = _message_received.Split(' ');
 
-            string[][] matriz = new string[2][];
-            matriz[0] = new string [] {"El apoyo Vales grandeza es un programa del gobierno de gto."
+            string[][] matriz = new string[23][];
+            matriz[0] = new string [] {"El apoyo Vales Grandeza es un programa del gobierno de gto, creado para ayudar a la economia de guanajuato en esta contingencia."
             ,"que"
             ,"trata"
             ,"apoyo"
+            ,"vacio"
+            ,"vacio"
             ,"vacio"};
 
             matriz[1] = new string []  {"Los vales tienen el valor de 50 pesos c/u."
             ,"que"
             ,"valor"
             ,"tiene"
-            ,"vale"};
+            ,"vale"
+            ,"vacio"
+            ,"vacio"};
+
+            matriz[2] = new string []  {"Los vales tienen el valor de 50 pesos c/u."
+            ,"que"
+            ,"valor"
+            ,"tienen"
+            ,"vales"
+            ,"vacio"
+            ,"vacio"};
+
+            matriz[3] = new string [] {"Se da un paquete de 20 vales."
+            ,"cuantos"
+            ,"vales"
+            ,"vacio"
+            ,"vacio"
+            ,"vacio"
+            ,"vacio"};
+
+            matriz[4] = new string [] {"Si, puedes solicitar el programa."
+            ,"pertenezco"
+            ,"otro"
+            ,"apoyo"
+            ,"puedo"
+            ,"aplicar"
+            ,"vacio"};
+
+            matriz[5] = new string [] {"Que la persona que recibira el apoyo pertenezca a una Zona Impulso."
+            ,"cuales"
+            ,"requisitos"
+            ,"vacio"
+            ,"vacio"
+            ,"vacio"
+            ,"vacio"};
+
+            matriz[6] = new string [] {"Tienes que ser mayor de edad, con INE."
+            ,"tengo"
+            ,"cumplir"
+            ,"alguna"
+            ,"edad"
+            ,"vacio"
+            ,"vacio"};
+
+            matriz[7] = new string [] {"Solo ser mayor de edad, pertenecer a una zona impulso y no haber tenido el programa mas de 2 veces."
+            ,"tiene"
+            ,"restricciones"
+            ,"vacio"
+            ,"vacio"
+            ,"vacio"
+            ,"vacio"};
+
+            matriz[8] = new string [] {"Si, mientras no sea un miembro de familia directa."
+            ,"alguien"
+            ,"familia"
+            ,"pertenece"
+            ,"programa"
+            ,"puedo"
+            ,"aplicar"};
+
+            matriz[9] = new string [] {"Comercios como abarrotes, verdulerias, carnicerias y farmacias ISSE."
+            ,"cuales"
+            ,"comercios"
+            ,"participantes"
+            ,"vacio"
+            ,"vacio"
+            ,"vacio"};
+
+            matriz[10] = new string [] {"Comercios como abarrotes, verdulerias, carnicerias y farmacias ISSE."
+            ,"que"
+            ,"comercios"
+            ,"participan"
+            ,"vacio"
+            ,"vacio"
+            ,"vacio"};
+
+            matriz[11] = new string [] {"Los requisitos son: ser una tienda o negocio de caracter local."
+            ,"cuales"
+            ,"requisitos"
+            ,"inscribir"
+            ,"negocio"
+            ,"vacio"
+            ,"vacio"};
+
+            matriz[12] = new string [] {"Los requisitos son: ser una tienda o negocio de caracter local."
+            ,"que"
+            ,"requisitos"
+            ,"inscribir"
+            ,"negocio"
+            ,"vacio"
+            ,"vacio"};
+
+            matriz[13] = new string [] {"Si su negocio no cuenta con regristro en hacienda, si puede solicitar el programa."
+            ,"negocio"
+            ,"no"
+            ,"registrado"
+            ,"puedo"
+            ,"solicitar"
+            ,"vacio"};
+
+            matriz[14] = new string [] {"Cada 2 meses."
+            ,"cuanto"
+            ,"tiempo"
+            ,"convocatoria"
+            ,"vacio"
+            ,"vacio"
+            ,"vacio"};
+
+            matriz[15] = new string [] {"Este programa estara disponible hasta el termino de la contingencia."
+            ,"cuanto"
+            ,"tiempo"
+            ,"disponible"
+            ,"programa"
+            ,"vacio"
+            ,"vacio"};
+
+            matriz[16] = new string [] {"Si, el programa sera otorgado siempre y cuando no haya sido beneficiado mas de 2 veces."
+            ,"puedo"
+            ,"volver"
+            ,"solicitarlo"
+            ,"vacio"
+            ,"vacio"
+            ,"vacio"};
+
+
+            matriz[17] = new string [] {"Si, el programa sera otorgado siempre y cuando no haya sido beneficiado mas de 2 veces."
+            ,"puedo"
+            ,"volver"
+            ,"solicitar"
+            ,"programa"
+            ,"vacio"
+            ,"vacio"};
+
+            matriz[18] = new string [] {"Si, se repondran aunque los vales perdidos seran cancelados y sin valor alguno."
+            ,"pierden"
+            ,"vales"
+            ,"pueden"
+            ,"reembolsar"
+            ,"vacio"
+            ,"vacio"};
+
+            matriz[19] = new string [] {"Si fuiste aceptado, tu articulador te notificara cuando sera la entrega de tus vales."
+            ,"cuando"
+            ,"recibire"
+            ,"vales"
+            ,"vacio"
+            ,"vacio"
+            ,"vacio"};
+
+            matriz[20] = new string [] {"De nada, tenga un lindo dia."
+            ,"gracias"
+            ,"vacio"
+            ,"vacio"
+            ,"vacio"
+            ,"vacio"
+            ,"vacio"};
+
+            matriz[21] = new string [] {"Buenas tardes, ¿En que puedo ayudarte?."
+            ,"Hola"
+            ,"vacio"
+            ,"vacio"
+            ,"vacio"
+            ,"vacio"
+            ,"vacio"};
+
+            matriz[22] = new string [] {"Si, se repondran aunque los vales perdidos seran cancelados y sin valor alguno."
+            ,"pierdo"
+            ,"vales"
+            ,"reembolsar"
+            ,"vacio"
+            ,"vacio"
+            ,"vacio"};
 
             List<int> array_match = new List<int>();
             int indice = 1;
@@ -92,9 +266,13 @@ namespace ValesBot
                     }
 
                 }
+                if(indice==6){
+                    break;
+                }
                 if(array_match.Count != elementos_en_pila){
                     indice++;
                 }    
+                
             }
             if(array_match.Count==0){
                 await turnContext.SendActivityAsync("No encontre informacion suficiente para responder tu pregunta.",cancellationToken: cancellationToken);
