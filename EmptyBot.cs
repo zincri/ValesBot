@@ -29,6 +29,7 @@ namespace ValesBot
         protected override async Task OnMessageActivityAsync(ITurnContext<IMessageActivity> turnContext, CancellationToken cancellationToken){
             var message_received = turnContext.Activity.Text;
             
+            //Retiramos todos los caracteres especiales de la frase que puso el usuario.
             string _message_received = message_received.Replace(",", "");
             _message_received = _message_received.Replace(".", "");
             _message_received = _message_received.Replace(":", "");
@@ -37,6 +38,7 @@ namespace ValesBot
             _message_received = _message_received.Replace("?", "");
             var array_message = _message_received.Split(' ');
 
+            //Declaramos las preguntas con las respuestas
             string[][] matriz = new string[23][];
             matriz[0] = new string [] {"El apoyo Vales Grandeza es un programa del gobierno de gto, creado para ayudar a la economia de guanajuato en esta contingencia."
             ,"que"
@@ -231,10 +233,9 @@ namespace ValesBot
                 
                 //Se necesita una bandera para que solo la primera vez pase en el for de abajo,
                 //despues solo busque la palabra en otro for donde se itere la matriz[matchs]
-                //Y cuando un match ya no continue, entonces se eliminara de la pila de matchs,
-                //Cuando el array tenga solo un elemento es entonces que encontro el match exacto.
+                //Y cuando un indice match vuelva a tener match con otra palabra clave,
+                // entonces se agregara otra vez a la pila de matchs.
 
-                //Tambien debes validar cuando no haya ningun match y debe buscar en otra palabra(posicion.)
                 if (indice==1){
                     int contador=0;
                     foreach (var words in matriz)
@@ -247,14 +248,15 @@ namespace ValesBot
 
                 }
                 else{
-                    //Usar un for para iterar solo 
-                    //los que si hicieron match,
-                    //Tambien se necesita un contador
-                    //para saber que palabra de lo que
-                    //ingreso el usuario se esta comparando.
+                    //Se usa un for para iterar en los indices 
+                    //de los que si hicieron match, ya que 
+                    //ahora solo se buscara en los arreglos 
+                    //que hicieron match con la primera palabra clave
 
-                    //Si llenamos el array de match con los mas repetidos
-                    //es mas facil determinar cual es la respuesta
+                    //Nota: Si llenamos un array de los numeros de los indices
+                    //con los mas repetidos, es mas facil determinar cual es la respuesta.
+
+                    
                     int[] array_match_temporal= new int[array_match.Count];
                     array_match.CopyTo(array_match_temporal,0);
 
